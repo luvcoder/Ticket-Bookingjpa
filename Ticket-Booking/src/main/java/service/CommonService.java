@@ -1,8 +1,8 @@
-package models;
+package service;
 import enums.PassengerType;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+
 import java.util.Map;
 @Service
 @RequiredArgsConstructor

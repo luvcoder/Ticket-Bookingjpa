@@ -1,4 +1,4 @@
-package models;
+package service;
 import config.PostgresManager;
 import org.springframework.stereotype.Service;
 import java.sql.*;

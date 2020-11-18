@@ -8,6 +8,11 @@ public class Child extends Passenger {
     private static  int maxAge;
     static{maxAge=12;}
     private String guardian;
+    public Child(String name, int age, String address, int idCard,Long contact) {
+        super(name, age, address,idCard,contact,PassengerType.CHILD);
+        this.guardian=guardian;
+    }
+}
   /*  public Child(String name,int age,String address,int idCard,long contact){
         this.setName(name);
         this.setAge(age);
@@ -25,8 +30,3 @@ public class Child extends Passenger {
             System.out.println("Book general or senior citizen ticket.");
     }
 }*/
-    public Child(String name, int age, String address, int idCard,Long contact) {
-        super(name, age, address,idCard,contact,PassengerType.CHILD);
-        this.guardian=guardian;
-    }
-}

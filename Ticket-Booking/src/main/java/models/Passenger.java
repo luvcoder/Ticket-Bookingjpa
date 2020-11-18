@@ -9,7 +9,7 @@ import lombok.Setter;
 public abstract class Passenger {
     private String name;
     private  int age;
-    public  String address;
+    private String address;
     private int idCard;
     private long contact;
     private PassengerType PassengerType;
