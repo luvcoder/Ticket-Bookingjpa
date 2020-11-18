@@ -1,8 +1,9 @@
 package models;
-import config.PostgresManager;
-import org.springframework.stereotype.Service;
 import lombok.RequiredArgsConstructor;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Service;
 import java.util.Map;
+import config.PostgresManager;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,7 +11,20 @@ import java.sql.SQLException;
 @Service
 @RequiredArgsConstructor
 public class ChildService {
-    public Child createChild(Child child) {
+    private final JdbcTemplate jdbcTemplate;
+    public Map<String, Object> save(Map<String, Object> child) {
+        Map<String, Object> cMap = jdbcTemplate.queryForMap("insert into Child(idCard,name,age,address,contact,guardian) values(?,?,?,?,?,?) RETURNING passengerID",
+                Long.parseLong((String) child.get("idCard")),
+                child.get("name"),
+                Integer.parseInt((String) child.get("age")),
+                child.get("address"),
+                Long.parseLong((String) child.get("contact")),
+                child.get("guardian"));
+        child.put("passengerID", cMap.get("passengerID"));
+        return child;
+    }
+}
+   /* public Child createChild(Child child) {
         Connection connection = PostgresManager.getConnection();
         try {
             PreparedStatement preparedStatement = connection.prepareStatement("insert into child(name, contact, address,guardian,idCard ) values (?,?,?,?,?)");
@@ -36,4 +50,4 @@ public class ChildService {
         ChildService childService;
         return childService.createPassenger(passenger);
     }
-}
+}*/
