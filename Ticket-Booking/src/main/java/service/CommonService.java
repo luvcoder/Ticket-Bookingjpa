@@ -10,7 +10,7 @@ public class CommonService {
     private final ChildService childService;
     private final SeniorCitizenService seniorCitizenService;
     private final GeneralService generalService;
-    public Map<String, Object> createPassenger(Map<String, Object> Passenger) {
+    public Map<String, Object> save(Map<String, Object> Passenger) {
         switch (PassengerType.valueOf(String.valueOf(Passenger.get("PassengerType")))) {
             case CHILD:
                 return childService.save(Passenger);
