@@ -1,4 +1,4 @@
-package controller;
+/*package controller;
 import service.TicketDeleteService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -9,12 +9,14 @@ import java.util.Map;
 @RequestMapping(path = "Delete")
 public class TicketDeleteController {
     private final TicketDeleteService ticketDeleteService;
-    @DeleteMapping(value = "ticket")
+    @DeleteMapping(value = "ticket/{ticketID}")
     public void TicketDelete(@PathVariable("ticketID") Integer ticketID){
-        ticketDeleteService.DeleteTicket(ticketID);
+        ticketDeleteService.deleteTicket(ticketID);
     }
     @DeleteMapping(path = "passenger")
-    public Map<String, Object> PassengerDelete(@RequestParam(value = "passenger_id")Integer passenger_id){
-        return this.ticketDeleteService.DeleteCommonService(passenger_id);
+    public void PassengerDelete(@RequestParam(value = "passenger_id")Integer passenger_id){
+        this.ticketDeleteService.deleteCommonService(passenger_id);
     }
-}
+}*/
+
+

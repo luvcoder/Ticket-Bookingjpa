@@ -7,11 +7,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class Ticket {
-    private int ticketID;
+    private long ticketID;
     private  String status;
-    private int trainID;
-    private int stationID_D;
-    private int sationID_A;
+    private long trainID;
+    private long stationID_D;
+    private long sationID_A;
     private int berthnumber;
     private int DepartureTime;
 }

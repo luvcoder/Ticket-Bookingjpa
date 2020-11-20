@@ -7,11 +7,10 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class TrainService {
     private final JdbcTemplate jdbcTemplate;
-    public Map<String, Object> save(Map<String, Object> train) {
-        Map<String, Object> trMap = jdbcTemplate.queryForMap("insert into train(trainID,trainName) values(?,?) RETURNING trainID",
+    public Map <String, Object> save(Map<String, Object> train ){
+          jdbcTemplate.update("insert into train(trainID,trainName) values(?,?) ",
                 Integer.parseInt((String) train.get("trainID")),
-                Integer.parseInt((String) train.get("trainID")));
-        train.put("ticketID", trMap.get("ticketID"));
+                 train.get("trainName"));
         return train;
     }
 }

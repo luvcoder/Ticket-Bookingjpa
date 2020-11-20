@@ -15,7 +15,7 @@ public class TestService {
         Connection connection = PostgresManager.getConnection();
         try {
            Statement preparedStatement  = connection.createStatement();
-            ResultSet resultSet = Statement.executeQuery("select * from Passenger");
+            ResultSet resultSet = preparedStatement.executeQuery("select * from Passenger");
             List<Map<String, String>> resultList = new ArrayList<>();
             while (resultSet.next()) {
                 Map<String, String> result = new HashMap<>();

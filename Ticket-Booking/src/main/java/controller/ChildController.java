@@ -16,6 +16,6 @@ public class ChildController {
     @PostMapping(path = "create/test", consumes = MediaType.APPLICATION_JSON_VALUE)
     public Passenger createPassenger(@RequestBody Passenger passenger) {return passenger; }
     @PutMapping(path="update",consumes=MediaType.APPLICATION_JSON_VALUE)
-    public Passenger updatePassenger(@RequestBody Passenger passenger){return passenger;}
+    public Map<String, Object> updatePassenger(@RequestBody Map<String,Object>Passenger){return childService.save(Passenger);}
 }
 
