@@ -1,4 +1,4 @@
-package service;
+/*package service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -11,3 +11,4 @@ public class TicketDetailsService {
         return jdbctemplateTicketDet.queryForMap("select * from ticket where ticket_id=?", ticket_id);
     }
 }
+*/

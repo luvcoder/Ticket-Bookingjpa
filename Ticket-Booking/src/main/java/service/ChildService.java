@@ -13,14 +13,14 @@ import java.sql.SQLException;
 public class ChildService {
     private final JdbcTemplate jdbcTemplate;
     public Map<String, Object> save(Map<String, Object> child) {
-        Map<String, Object> cMap = jdbcTemplate.queryForMap("insert into Child(idCard,name,age,address,contact,guardian) values(?,?,?,?,?,?) RETURNING passengerID",
+        Map<String, Object> cMap = jdbcTemplate.queryForMap("insert into Child(idCard,guardian) values(?,?) RETURNING idCard",
                 Long.parseLong((String) child.get("idCard")),
-                child.get("name"),
-                Integer.parseInt((String) child.get("age")),
-                child.get("address"),
-                Long.parseLong((String) child.get("contact")),
+              // child.get("name"),
+              // Integer.parseInt((String) child.get("age")),
+              // child.get("address"),
+              // Long.parseLong((String) child.get("contact")),
                 child.get("guardian"));
-        child.put("passengerID", cMap.get("passengerID"));
+        child.put("idCard", cMap.get("idCard"));
         return child;
     }
 }

@@ -10,12 +10,9 @@ import java.util.Map;
 @RequestMapping(path = "child")
 public class ChildController {
     private final ChildService childService;
-    private Object Child;
     @PostMapping(path = "create", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Map<String, Object> savePassenger(@RequestBody Map<String, Object> Passenger){ return childService.save(Passenger);}
-    @PostMapping(path = "create/test", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public Passenger createPassenger(@RequestBody Passenger passenger) {return passenger; }
+    public Map<String, Object> saveChild(@RequestBody Map<String, Object> Child){ return childService.save(Child);}
     @PutMapping(path="update",consumes=MediaType.APPLICATION_JSON_VALUE)
-    public Map<String, Object> updatePassenger(@RequestBody Map<String,Object>Passenger){return childService.save(Passenger);}
+    public Map<String, Object> updateChild(@RequestBody Map<String,Object>Child){return childService.save(Child);}
 }
 

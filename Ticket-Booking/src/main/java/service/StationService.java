@@ -8,10 +8,10 @@ import java.util.Map;
 public class StationService {
     private final JdbcTemplate jdbcTemplate;
     public Map<String, Object> save(Map<String, Object> station) {
-        Map<String, Object> sMap = jdbcTemplate.queryForMap("insert into station(stationName,stationID,) values(?,?) RETURNING stationID",
-station.get("stationName"),
-                Integer.parseInt((String) station.get("stationID")));
-        station.put("sationID", sMap.get("stationID"));
+        Map<String, Object> sMap = jdbcTemplate.queryForMap("insert into station(stationID,stationName) values(?,?) RETURNING stationID",
+                station.get("stationID"),
+                Integer.parseInt((String) station.get("stationName")));
+        station.put("stationID", sMap.get("stationID"));
         return station;
     }
 }
