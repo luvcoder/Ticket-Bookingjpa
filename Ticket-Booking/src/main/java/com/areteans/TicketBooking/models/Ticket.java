@@ -11,7 +11,7 @@ public class Ticket {
     private  String status;
     private long trainID;
     private long stationID_D;
-    private long sationID_A;
+    private long stationID_A;
     private int berthnumber;
     Time DepartureTime;
 }

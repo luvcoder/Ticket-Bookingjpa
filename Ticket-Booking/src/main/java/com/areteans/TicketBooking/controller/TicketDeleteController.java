@@ -15,9 +15,6 @@ public class TicketDeleteController {
         ticketDeleteService.deleteTicket(ticketID);
     }
 
-    @DeleteMapping(path = "passenger")
-    public void PassengerDelete(@RequestParam(value = "passenger_id") Integer passenger_id) {
-        this.ticketDeleteService.deleteCommonService(passengerid);
-    }
+
 }
 
